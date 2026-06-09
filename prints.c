@@ -16,7 +16,7 @@ void	print_integer(int *i, int *argn, va_list arguments)
 	temp = ft_itoa(tempn);
 	write(1, temp, ft_strlen(temp));
 	*i = *i + 2;
-	(*argn)++;	
+	(*argn) = (*argn) + ft_strlen(temp);
 }
 
 void	print_string(int *i, int *argn, va_list arguments)
@@ -26,12 +26,12 @@ void	print_string(int *i, int *argn, va_list arguments)
 	temp = va_arg(arguments, char *);
 	write(1, temp, ft_strlen(temp));
 	*i = *i + 2;
-	(*argn)++;
+	(*argn) = (*argn) + ft_strlen(temp);
 }
 
 void	print_character(int *i, int *argn, va_list arguments)
 {
-	char 	character;
+	char	character;
 
 	character = (char)va_arg(arguments, int);
 	write(1, &character, 1);
@@ -44,7 +44,6 @@ void	print_unsigned_int(int *i, int *argn, va_list arguments)
 	unsigned int		temp;
 
 	temp = va_arg(arguments, unsigned int);
-    print_unsigned(temp);
+	print_unsigned(temp, argn);
 	*i = *i + 2;
-	(*argn)++;
 }
