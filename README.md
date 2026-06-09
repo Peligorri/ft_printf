@@ -31,9 +31,9 @@ Finally, you can run the program with:
 ```
 
 ## Resources
-- https://youtu.be/e5_rgCNhJTM?si=VtrkdLl2jWa-7oqU \
+- https://youtu.be/e5_rgCNhJTM?si=VtrkdLl2jWa-7oqU 
 - https://youtu.be/byRw36Y3Hjs?si=2OV9jTRvwsi68eGf \
 These videos helped me understand the project's requirements and provided guidance on how to approach its implementation. \
-\
+
 - https://chatgpt.com/ \
 I used ChatGPT as a *Moulinette* to check whether my code was correct or not. It was also useful for better understanding what the functions do. Finally, I used it to improve my English texts so they look more polished and professional. I never used it to figure out how to write the code or to get direct answers for any function. 
