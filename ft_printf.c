@@ -25,7 +25,10 @@ int	ft_printf(const char *str, ...)
 			print_unsigned_int(&i, &argn, arguments);
 		else if (str[i] == '%' && str[i + 1] == 'X')
 			print_hexa_upper(&i, &argn, arguments);
-		write(1, &str[i], 1);
+		if (str[i] == '%')
+			i--;
+		else
+			write(1, &str[i], 1);
 		i++;
 		argn++;
 	}

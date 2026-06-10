@@ -4,7 +4,7 @@ void	ft_puthex(unsigned long long n, int *argn)
 {
 	char	*base;
 
-	*base = "0123456789abcdef";
+	base = "0123456789abcdef";
 	if (n >= 16)
 		ft_puthex(n / 16, argn);
 	write (1, &base[n % 16], 1);
@@ -15,7 +15,7 @@ void	ft_puthex_upper(unsigned long long n, int *argn)
 {
 	char	*base;
 
-	*base = "0123456789ABCDEF";
+	base = "0123456789ABCDEF";
 	if (n >= 16)
 		ft_puthex_upper(n / 16, argn);
 	write (1, &base[n % 16], 1);
