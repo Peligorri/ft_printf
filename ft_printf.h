@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jangonza <jangonza@student.42urduliz.com>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/11 11:37:45 by jangonza          #+#    #+#             */
+/*   Updated: 2026/06/11 11:37:48 by jangonza         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
@@ -7,12 +19,12 @@
 # include <stdarg.h>
 
 int		ft_printf(const char *str, ...);
-void	print_percentage(int *i, int *argn);
-void	print_integer(int *i, int *argn, va_list arguments);
-void	print_string(int *i, int *argn, va_list arguments);
-void	print_character(int *i, int *argn, va_list arguments);
-void	print_unsigned_int(int *i, int *argn, va_list arguments);
-void	print_hexa_upper(int *i, int *argn, va_list arguments);
+void	print_percentage(int *argn);
+void	print_integer(int *argn, va_list arguments);
+void	print_string(int *argn, va_list arguments);
+void	print_character(int *argn, va_list arguments);
+void	print_unsigned_int(int *argn, va_list arguments);
+void	print_hexa_upper(int *argn, va_list arguments);
 void	print_hexadecimal(int *i, int *argn, va_list arguments,
 			const char *str);
 void	print_unsigned(unsigned int n, int *argn);

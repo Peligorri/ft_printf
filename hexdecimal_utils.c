@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   hexdecimal_utils.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jangonza <jangonza@student.42urduliz.com>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/11 11:37:58 by jangonza          #+#    #+#             */
+/*   Updated: 2026/06/11 11:38:02 by jangonza         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 void	ft_puthex(unsigned long long n, int *argn)
@@ -38,20 +50,27 @@ void	print_hexadecimal(int *i, int *argn, va_list arguments, const char *str)
 	void	*pointer;
 
 	pointer = va_arg(arguments, void *);
-	if (str[*i + 1] == 'p')
+	if (pointer == NULL)
+	{
+		write (1, "(nil)", 5); 
+		(*argn) = (*argn) + 5;
+		//i--;
+	}
+	if (str[*i + 1] == 'p' && pointer != NULL)
 	{
 		write (1, "0x", 2);
 		(*argn) = (*argn) + 2;
 	}
-	ft_puthex((unsigned long long)pointer, argn);
-	*i = *i + 2;
+	if (pointer != NULL)
+		ft_puthex((unsigned long long)pointer, argn);
+	//*i = *i + 2;
 }
 
-void	print_hexa_upper(int *i, int *argn, va_list arguments)
+void	print_hexa_upper(int *argn, va_list arguments)
 {
 	unsigned int	temp;
 
 	temp = va_arg(arguments, unsigned int);
 	ft_puthex_upper((unsigned int)temp, argn);
-	*i = *i + 2;
+	//*i = *i + 2;
 }
