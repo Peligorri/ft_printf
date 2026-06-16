@@ -11,13 +11,13 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
 void	print_hexa_lower(int *argn, va_list arguments)
 {
 	unsigned int	temp;
 
 	temp = va_arg(arguments, unsigned int);
 	ft_puthex((unsigned int)temp, argn);
-	//*i = *i + 2;
 }
 
 void	select_prints(const char *str, int *i, int *argn, va_list arguments)
@@ -38,6 +38,17 @@ void	select_prints(const char *str, int *i, int *argn, va_list arguments)
 		print_hexa_lower(argn, arguments);
 	else if (str[*i + 1] == 'X')
 		print_hexa_upper(argn, arguments);
+}
+
+void	ft_extra(const char *str, int *i, int *argn)
+{
+	if (str[*i] == '%')
+		(*i)--;
+	else
+	{
+		write(1, &str[*i], 1);
+		(*argn)++;
+	}
 }
 
 int	ft_printf(const char *str, ...)
@@ -62,13 +73,7 @@ int	ft_printf(const char *str, ...)
 				return (argn);
 			}
 		}
-		if (str[i] == '%')
-			i--;
-		else
-		{
-			write(1, &str[i], 1);
-			argn++;
-		}
+		ft_extra(str, &i, &argn);
 		i++;
 	}
 	va_end(arguments);
@@ -81,8 +86,14 @@ int	ft_printf(const char *str, ...)
 	int chars;
 	int realchars;
 
-	chars = ft_printf("Caracter: %c, cadena: %s, puntero: %p, decimal: %d, entero: %i, sin signo: %u, hexadecimal min: %x, hexadecimal may: %X y porcentaje: %%.\n", '0' - 256, "Hola mundo", &n, -12345, 67890, -42U, 305441741, 305441741);
-	realchars = printf("Caracter: %c, cadena: %s, puntero: %p, decimal: %d, entero: %i, sin signo: %u, hexadecimal min: %x, hexadecimal may: %X y porcentaje: %%.\n", '0' - 256, "Hola mundo", &n, -12345, 67890, -42U, 305441741, 305441741);
+	chars = ft_printf("Caracter: %c, cadena: %s, puntero: %p, 
+	decimal: %d, entero: %i, sin signo: %u, hexadecimal min: 
+	%x, hexadecimal may: %X y porcentaje: %%.\n", '0' - 256, 
+	"Hola mundo", &n, -12345, 67890, -42U, 305441741, 305441741);
+	realchars = printf("Caracter: %c, cadena: %s, puntero: %p, 
+	decimal: %d, entero: %i, sin signo: %u, hexadecimal min: 
+	%x, hexadecimal may: %X y porcentaje: %%.\n", '0' - 256, 
+	"Hola mundo", &n, -12345, 67890, -42U, 305441741, 305441741);
 	ft_printf("\n\nSe han impreso %i carácteres\n", chars);
 	printf("Se han impreso %i carácteres\n", realchars);
 	return (0);

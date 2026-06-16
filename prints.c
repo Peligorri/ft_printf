@@ -15,7 +15,6 @@
 void	print_percentage(int *argn)
 {
 	write(1, "%", 1);
-	//*i = *i + 2;
 	(*argn)++;
 }
 
@@ -27,7 +26,6 @@ void	print_integer(int *argn, va_list arguments)
 	tempn = va_arg(arguments, int);
 	temp = ft_itoa(tempn);
 	write(1, temp, ft_strlen(temp));
-	//*i = *i + 2;
 	(*argn) = (*argn) + ft_strlen(temp);
 }
 
@@ -46,8 +44,6 @@ void	print_string(int *argn, va_list arguments)
 		write(1, temp, ft_strlen(temp));
 		(*argn) = (*argn) + ft_strlen(temp);
 	}
-	//*i = *i + 2;
-	
 }
 
 void	print_character(int *argn, va_list arguments)
@@ -56,7 +52,6 @@ void	print_character(int *argn, va_list arguments)
 
 	character = (char)va_arg(arguments, int);
 	write(1, &character, 1);
-	//*i = *i + 2;
 	(*argn)++;
 }
 
@@ -66,5 +61,4 @@ void	print_unsigned_int(int *argn, va_list arguments)
 
 	temp = va_arg(arguments, unsigned int);
 	print_unsigned(temp, argn);
-	//*i = *i + 2;
 }
