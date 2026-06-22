@@ -27,6 +27,7 @@ void	print_integer(int *argn, va_list arguments)
 	temp = ft_itoa(tempn);
 	write(1, temp, ft_strlen(temp));
 	(*argn) = (*argn) + ft_strlen(temp);
+	free(temp);
 }
 
 void	print_string(int *argn, va_list arguments)
